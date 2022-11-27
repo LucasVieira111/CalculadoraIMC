@@ -2,30 +2,36 @@ namespace Projeto
 {
     public class User
     {
-        public User(string name, double pes, double alt, double result, string status){
-            this.name = name; 
-            this.pes = pes; 
-            this.alt = alt; 
-            this.result = result; 
-            this.status = status; 
-        }
-        public string name { 
-            get { return name;} 
-            set{this.name = name;} 
-        }
-        public double pes { 
-            get {return pes;}
-            set{this.pes = pes;} } 
-        public double alt { 
-            get {return alt;}
-            set{this.alt = alt;} } 
+        private String _name;
+        private double _pes;
+        private double _alt;
+        private double _result;
+        private string _status;
 
-        public double result { 
-            get {return result;}
-            set{this.result = result;} } 
-        public string status { 
-            get { return status;} 
-            set{this.status = status;} 
+        public User(string name, double pes, double alt, double result, string status){
+            _name = name; 
+            _pes = pes; 
+            _alt = alt; 
+            _result = result; 
+            _status = status; 
+        }
+        public string Name { 
+            get { return _name;} 
+            set{_name = value;} 
+        }
+        public double Pes { 
+            get {return _pes;}
+            set{_pes = value;} } 
+        public double Alt { 
+            get {return _alt;}
+            set{_alt = value;} } 
+
+        public double Result { 
+            get {return _result;}
+            set{_result = value;} } 
+        public string Status { 
+            get { return _status;} 
+            set{_status = value;} 
         }
     }
 }

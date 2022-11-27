@@ -5,24 +5,31 @@ namespace Projeto{
         static void Main()
         {
             Methods methods = new Methods();
-           
-            Console.Write("Digite o seu nome: ");
-            string name = Console.ReadLine();
-            Console.Write("Digite o seu peso: ");
-            double pes = double.Parse(Console.ReadLine());
-            Console.Write("Digite a sua altura: ");
-            double alt = double.Parse(Console.ReadLine());
-                
-            Calculator u = new Calculator(pes, alt);
-            double result = u.resultImc(); 
-            string status = u.statusImc(result);
-            methods.addUser(name, pes, alt, result, status);
-            //Console.ReadKey();
+            Boolean v = true;
 
-            Boolean v = true; 
-            while(v != false)
+            do{
+                Console.Clear();
+                Console.Write("Digite o seu nome: ");
+                string name = Console.ReadLine();
+                Console.Write("Digite o seu peso: ");
+                double pes = double.Parse(Console.ReadLine());
+                Console.Write("Digite a sua altura: ");
+                double alt = double.Parse(Console.ReadLine());
+                    
+                Calculator u = new Calculator(pes, alt);
+                double result = u.resultImc(); 
+                string status = u.statusImc(result);
+                methods.addUser(name, pes, alt, result, status);
+                
+                Console.Clear();
+                methods.list();
+            
+                v = false;
+
+            }while(v == true);
+
+            while(v != true)
             {   
-                //Console.Clear();
                 Console.WriteLine("Pressione Enter para calcular novamente");
                 Console.WriteLine("Digite 'exit' para finalizar o console");
                 Console.WriteLine("Digite 'limpar' para limpar os resultados anteriores e calcular novamente");            
@@ -30,21 +37,21 @@ namespace Projeto{
                 string op = Console.ReadLine();
                 
                 if(op == "")
-                {
-                    Console.Clear();
+                {   Console.Clear();
                     Console.Write("Digite o seu nome: ");
-                    string name1 = Console.ReadLine();
+                    string name = Console.ReadLine();
                     Console.Write("Digite o seu peso: ");
-                    double pes1 = double.Parse(Console.ReadLine());
+                    double pes = double.Parse(Console.ReadLine());
                     Console.Write("Digite a sua altura: ");
-                    double alt1 = double.Parse(Console.ReadLine());
+                    double alt = double.Parse(Console.ReadLine());
+                        
+                    Calculator u = new Calculator(pes, alt);
+                    double result = u.resultImc(); 
+                    string status = u.statusImc(result);
+                    methods.addUser(name, pes, alt, result, status);
                     
-                    Calculator u1 = new Calculator(pes, alt);
-                    double result1 = u.resultImc(); 
-                    string status1 = u.statusImc(result);
-
-                    methods.addUser(name1, pes1, alt1, result1, status1);
-                    Console.ReadKey();
+                    Console.Clear();
+                    methods.list();
                 }
                 else if(op == "exit")
                 {   
@@ -53,19 +60,32 @@ namespace Projeto{
                 }
                 else if(op == "limpar")
                 {
+                    methods.removeUser();
+                    Console.Clear();
+                    Console.Write("Digite o seu nome: ");
+                    string name = Console.ReadLine();
+                    Console.Write("Digite o seu peso: ");
+                    double pes = double.Parse(Console.ReadLine());
+                    Console.Write("Digite a sua altura: ");
+                    double alt = double.Parse(Console.ReadLine());
+                        
+                    Calculator u = new Calculator(pes, alt);
+                    double result = u.resultImc(); 
+                    string status = u.statusImc(result);
+                    methods.addUser(name, pes, alt, result, status);
                     
+                    Console.Clear();
+                    methods.list();
                 }
                 else if(op == "ver")
                 {   
                     Console.Clear();
                     methods.list();
-                    break;
-
                 }
                 else
-                {
+                {   
+                    Console.Clear();
                     Console.WriteLine("Opção invalida, digite novamente a opção desejada");
-                    Console.ReadKey();
                 }
 
             }
@@ -87,7 +107,7 @@ namespace Projeto{
         public double resultImc()
         {
             double imc = (pes / (alt * alt));
-            return imc;
+            return Math.Round(imc,2);
         }
 
         public string statusImc(double x)

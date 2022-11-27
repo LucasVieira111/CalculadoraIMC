@@ -5,12 +5,15 @@ namespace Projeto
         private List<User> user = new List<User>();
         
         public void list(){
-            Console.WriteLine("Nome\t|\tPeso\t|\tAltura\t|\tIMC\t|\tSTATUS\t");
-            Console.WriteLine(("").PadRight(60, '-'));
-            if(user.Count > 1){
-                for(int i=0; i < user.Count; i++){
-                    Console.WriteLine($"\t{user.ElementAt(i).name}"+$"\t{user.ElementAt(i).pes,8:c}"+
-                    $"\t{user.ElementAt(i).alt,8:c}"+$"\t{user.ElementAt(i).result,8:c}"+$"\t{user.ElementAt(i).status,8:c}");
+            if(user.Count > 0)
+            {
+                Console.WriteLine("Nome   | Peso | Altura |  IMC  |  STATUS");
+                Console.WriteLine(("").PadRight(50, '-'));
+                
+                for(int i=0; i < user.Count; i++)
+                {
+                    Console.WriteLine("{0}\t {1}\t {2}\t {3}\t {4}\t", user.ElementAt(i).Name, user.ElementAt(i).Pes, user.ElementAt(i).Alt,user.ElementAt(i).Result,user.ElementAt(i).Status);
+                    Console.WriteLine(("").PadRight(50, '-'));
                 }
             }else{
                 Console.WriteLine("Não existe pessoa cadastrada!");
@@ -18,6 +21,9 @@ namespace Projeto
         }
         public void addUser(string name, double pes, double alt, double result, string status){
             user.Add(new User(name, pes, alt, result, status));
+        }
+        public void removeUser(){
+            user.Clear();
         }
         
 
