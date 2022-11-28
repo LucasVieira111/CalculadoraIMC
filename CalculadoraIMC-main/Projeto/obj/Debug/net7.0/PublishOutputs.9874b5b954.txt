@@ -1,0 +1,5 @@
+C:\projeto\bin\Debug\net7.0\publish\Projeto.exe
+C:\projeto\bin\Debug\net7.0\publish\Projeto.dll
+C:\projeto\bin\Debug\net7.0\publish\Projeto.deps.json
+C:\projeto\bin\Debug\net7.0\publish\Projeto.runtimeconfig.json
+C:\projeto\bin\Debug\net7.0\publish\Projeto.pdb
